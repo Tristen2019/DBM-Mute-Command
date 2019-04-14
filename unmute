@@ -1,6 +1,6 @@
 {
   "name": "unmute",
-  "permissions": "MUTE_MEMBERS",
+  "permissions": "NONE",
   "restriction": "1",
   "_id": "XJVxc",
   "actions": [
@@ -79,17 +79,18 @@
       "name": "End Action Sequence"
     },
     {
-      "member": "0",
-      "varName": "",
-      "mute": "1",
-      "name": "Set Member Mute"
+      "info": "1",
+      "find": "Muted",
+      "storage": "1",
+      "varName": "found.muted.role",
+      "name": "Find Role"
     },
     {
       "member": "0",
-      "varName": "",
-      "permission": "SEND_MESSAGES",
-      "action": "0",
-      "name": "Set Member Permissions"
+      "varName2": "",
+      "role": "3",
+      "varName": "found.muted.role",
+      "name": "Remove Member Role"
     },
     {
       "channel": "0",
