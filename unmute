@@ -1,0 +1,136 @@
+{
+  "name": "unmute",
+  "permissions": "MUTE_MEMBERS",
+  "restriction": "1",
+  "_id": "XJVxc",
+  "actions": [
+    {
+      "member": "1",
+      "varName": "",
+      "permission": "MUTE_MEMBERS",
+      "iftrue": "2",
+      "iftrueVal": "6",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Member Permissions"
+    },
+    {
+      "title": "Invalid Permissions",
+      "author": "",
+      "color": "RED",
+      "timestamp": "false",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "unmute.error.invalid.permissions.message",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "unmute.error.invalid.permissions.message",
+      "message": "You must have the Mute Members permission in order to unmute members.",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "unmute.error.invalid.permissions.message",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "condition": "1",
+      "comparison": "0",
+      "value": "1",
+      "iftrue": "3",
+      "iftrueVal": "4",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Parameters"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "```\nPlease mention one user in order to unmute them!\n.unmute [@user]\n```",
+      "storage": "1",
+      "varName2": "mention.error.message",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "time": "3",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "mention.error.message",
+      "name": "Delete Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "mute": "1",
+      "name": "Set Member Mute"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "permission": "SEND_MESSAGES",
+      "action": "0",
+      "name": "Set Member Permissions"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "```\nThe user mentioned has been unmuted.\n```",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "info": "22",
+      "storage": "1",
+      "varName2": "unmuted.user",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "22",
+      "storage": "1",
+      "varName2": "command.author",
+      "name": "Store Member Info"
+    },
+    {
+      "info": "1",
+      "find": "logs",
+      "storage": "1",
+      "varName": "found.channel",
+      "name": "Find Channel"
+    },
+    {
+      "channel": "5",
+      "varName": "found.channel",
+      "message": "```\n${tempVars(\"unmuted.user\")} has been unmuted by ${tempVars(\"command.author\")}.\n```",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    }
+  ]
+}
