@@ -1,15 +1,177 @@
 {
   "name": "mute",
-  "permissions": "MUTE_MEMBERS",
+  "permissions": "NONE",
   "restriction": "1",
-  "_id": "mwsNd",
+  "_id": "EmtMB",
   "actions": [
+    {
+      "info": "1",
+      "find": "Muted",
+      "storage": "1",
+      "varName": "attempt.to.find.muted.role",
+      "name": "Find Role"
+    },
+    {
+      "storage": "1",
+      "varName": "attempt.to.find.muted.role",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "2",
+      "iftrueVal": "8",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Creating \"**Muted**\" Role....",
+      "storage": "1",
+      "varName2": "creating.role.message",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "time": "3",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "roleName": "Muted",
+      "hoist": "false",
+      "mentionable": "false",
+      "color": "BLACK",
+      "position": "",
+      "storage": "0",
+      "varName": "",
+      "name": "Create Role"
+    },
+    {
+      "storage": "1",
+      "varName": "creating.role.message",
+      "message": "\"**Muted**\" role has been successfully created.",
+      "storage2": "1",
+      "varName2": "",
+      "name": "Edit Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "info": "1",
+      "find": "muted-users",
+      "storage": "1",
+      "varName": "try.to.find.channel.muted.users",
+      "name": "Find Channel"
+    },
+    {
+      "storage": "1",
+      "varName": "try.to.find.channel.muted.users",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "2",
+      "iftrueVal": "21",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Would you like to create a channel for Muted users?\nSay \"yes\" or \"no\"",
+      "storage": "1",
+      "varName2": "channel.muted.users.yes.or.no",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "check.var.no",
+      "comparison": "5",
+      "value": "no",
+      "iftrue": "2",
+      "iftrueVal": "21",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Creating text channel for Muted users....",
+      "storage": "1",
+      "varName2": "creating.muted.channel",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "time": "3",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "info": "1",
+      "find": "Muted",
+      "storage": "1",
+      "varName": "find.role.muted.creating.channel",
+      "name": "Find Role"
+    },
+    {
+      "channelName": "muted-users",
+      "categoryID": "",
+      "topic": "",
+      "position": "",
+      "storage": "0",
+      "varName": "",
+      "name": "Create Text Channel"
+    },
+    {
+      "info": "1",
+      "find": "muted-users",
+      "storage": "1",
+      "varName": "found.muted.users.channel",
+      "name": "Find Channel"
+    },
+    {
+      "channel": "3",
+      "varName": "found.muted.users.channel",
+      "role": "3",
+      "varName2": "find.role.muted.creating.channel",
+      "permission": "SEND_MESSAGES",
+      "state": "0",
+      "name": "Set Role Channel Perms"
+    },
+    {
+      "storage": "1",
+      "varName": "creating.muted.channel",
+      "message": "Text Channel for Muted members has been created!",
+      "storage2": "1",
+      "varName2": "",
+      "name": "Edit Message"
+    },
+    {
+      "storage": "1",
+      "varName": "check.var.yes",
+      "comparison": "5",
+      "value": "yes",
+      "iftrue": "2",
+      "iftrueVal": "17",
+      "iffalse": "1",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "name": "End Action Sequence"
+    },
     {
       "member": "1",
       "varName": "",
       "permission": "MUTE_MEMBERS",
       "iftrue": "2",
-      "iftrueVal": "7",
+      "iftrueVal": "6",
       "iffalse": "0",
       "iffalseVal": "",
       "name": "Check Member Permissions"
@@ -24,25 +186,18 @@
       "imageUrl": "",
       "thumbUrl": "",
       "storage": "1",
-      "varName": "embed.invalid.permissions.message",
+      "varName": "unmute.error.invalid.permissions.message",
       "name": "Create Embed Message"
     },
     {
       "storage": "1",
-      "varName": "embed.invalid.permissions.message",
-      "message": "You must have the Mute Members permission in order to mute members.",
+      "varName": "unmute.error.invalid.permissions.message",
+      "message": "You must have the Mute Members permission in order to unmute members.",
       "name": "Set Embed Description"
     },
     {
       "storage": "1",
-      "varName": "embed.invalid.permissions.message",
-      "message": "Mute Command by Tristen#3979",
-      "footerIcon": "https://cdn.discordapp.com/attachments/562429832076722187/566791581600972820/tristen_profile_picture.jpg",
-      "name": "Set Embed Footer"
-    },
-    {
-      "storage": "1",
-      "varName": "embed.invalid.permissions.message",
+      "varName": "unmute.error.invalid.permissions.message",
       "channel": "0",
       "varName2": "",
       "storage3": "0",
@@ -65,7 +220,7 @@
     {
       "channel": "0",
       "varName": "",
-      "message": "```\nPlease mention one user in order to mute them!\n.mute [@user]\n```",
+      "message": "```\nPlease mention one user in order to unmute them!\n.unmute [@user]\n```",
       "storage": "1",
       "varName2": "mention.error.message",
       "iffalse": "0",
@@ -86,46 +241,33 @@
       "name": "End Action Sequence"
     },
     {
+      "info": "1",
+      "find": "Muted",
+      "storage": "1",
+      "varName": "found.muted.role",
+      "name": "Find Role"
+    },
+    {
       "member": "0",
-      "varName": "",
-      "permission": "SEND_MESSAGES",
-      "action": "1",
-      "name": "Set Member Permissions"
-    },
-    {
-      "title": "User Muted",
-      "author": "",
-      "color": "#aa5958",
-      "timestamp": "false",
-      "url": "",
-      "authorIcon": "",
-      "imageUrl": "",
-      "thumbUrl": "",
-      "storage": "1",
-      "varName": "usermuted.embed.message",
-      "name": "Create Embed Message"
-    },
-    {
-      "storage": "1",
-      "varName": "usermuted.embed.message",
-      "message": "**${tempVars(\"muted.user\")}** has been muted successfully.",
-      "name": "Set Embed Description"
-    },
-    {
-      "storage": "1",
-      "varName": "usermuted.embed.message",
-      "channel": "0",
       "varName2": "",
-      "storage3": "0",
-      "varName3": "",
-      "name": "Send Embed Message"
+      "role": "3",
+      "varName": "found.muted.role",
+      "name": "Remove Member Role"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "```\nThe user mentioned has been unmuted.\n```",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
     },
     {
       "member": "0",
       "varName": "",
       "info": "22",
       "storage": "1",
-      "varName2": "muted.user",
+      "varName2": "unmuted.user",
       "name": "Store Member Info"
     },
     {
@@ -144,68 +286,14 @@
       "name": "Find Channel"
     },
     {
-      "title": "Mute Log",
-      "author": "",
-      "color": "#aa5958",
-      "timestamp": "false",
-      "url": "",
-      "authorIcon": "",
-      "imageUrl": "",
-      "thumbUrl": "",
-      "storage": "1",
-      "varName": "mute.log.embed.message",
-      "name": "Create Embed Message"
-    },
-    {
-      "storage": "1",
-      "varName": "mute.log.embed.message",
-      "message": "**${tempVars(\"muted.user\")}** has been muted.\n**Muted by:** ${tempVars(\"command.author\")}",
-      "name": "Set Embed Description"
-    },
-    {
-      "storage": "1",
-      "varName": "mute.log.embed.message",
-      "channel": "0",
+      "channel": "5",
+      "varName": "found.channel",
+      "message": "```\n${tempVars(\"unmuted.user\")} has been unmuted by ${tempVars(\"command.author\")}.\n```",
+      "storage": "0",
       "varName2": "",
-      "storage3": "0",
-      "varName3": "",
-      "name": "Send Embed Message"
-    },
-    {
-      "server": "0",
-      "varName": "",
-      "info": "2",
-      "storage": "1",
-      "varName2": "server.name",
-      "name": "Store Server Info"
-    },
-    {
-      "title": "You've been muted",
-      "author": "",
-      "color": "RED",
-      "timestamp": "true",
-      "url": "",
-      "authorIcon": "",
-      "imageUrl": "",
-      "thumbUrl": "",
-      "storage": "1",
-      "varName": "dm.user.muted.embed",
-      "name": "Create Embed Message"
-    },
-    {
-      "storage": "1",
-      "varName": "dm.user.muted.embed",
-      "message": "${mentionedUser} you have been muted on ${tempVars(\"server.name\")}.\n\nMuted by: ${member}",
-      "name": "Set Embed Description"
-    },
-    {
-      "storage": "1",
-      "varName": "dm.user.muted.embed",
-      "channel": "2",
-      "varName2": "",
-      "storage3": "0",
-      "varName3": "",
-      "name": "Send Embed Message"
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
     }
   ]
 }
